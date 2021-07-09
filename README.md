@@ -24,7 +24,7 @@ let person = {name: "Anton", age: 22};
 
 ###
 
- Watched object
+Watched object
 ```javascript
 person = ReactivityJs.bind(person);
 ```
@@ -88,4 +88,47 @@ controller.unwatch(watcher, () => {}, ...);
 Stop watching for everyone
 ```javascript
 controller.stopWatch();
+```
+
+# Example
+
+```javascript
+import {ReactivityJs} from "./ReactivityJs.js";
+
+// Initialize object
+let person = {name: "Anton", age: 22};
+
+// Binding watchers and controller
+let controller = {};
+person = ReactivityJs.bind(person,
+    person => console.log(`Hello ${person.name}.`),
+    person => console.log(`Your year of birth is ${new Date().getFullYear() - person.age}.`),
+    controller);
+
+// Binding new watchers
+let dateNow = person => console.log(`Hello ${person.name}, date now is ${new Date().toDateString()}.`);
+controller.watch(dateNow, () => console.log("That's all!"));
+
+// Change person
+console.log('=====Start=====');
+person.name = "Ivan";
+console.log('=====End=====');
+
+// Unwatch watchers
+controller.unwatch(dateNow, () => {
+});
+
+// Change person again
+console.log('=====Start=====');
+person.age = 29;
+console.log('=====End=====');
+
+// Set new watchers
+controller.stopWatch();
+controller.watch(person => console.log(person));
+
+// And last change
+console.log('=====Start=====');
+person.gender = 'Helicopter';
+console.log('=====End=====');
 ```
