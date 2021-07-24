@@ -1,0 +1,28 @@
+{
+  "name": "reactivityjs",
+  "version": "1.0.0",
+  "description": "Allows you to track changes in any JavaScript objects",
+  "main": "ReactivityJs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/energizet/ReactivityJs.git"
+  },
+  "keywords": [
+    "js",
+    "observer",
+    "watcher",
+    "listener",
+    "object",
+    "frontend",
+    "backend"
+  ],
+  "author": "energizet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/energizet/ReactivityJs/issues"
+  },
+  "homepage": "https://github.com/energizet/ReactivityJs#readme"
+}
